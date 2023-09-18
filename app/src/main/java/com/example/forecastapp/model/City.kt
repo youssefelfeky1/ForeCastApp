@@ -1,12 +1,17 @@
-package com.example.forecastapp.model
+package com.example.example.forecastapp
 
-data class City(
-    val coord: Coord,
-    val country: String,
-    val id: Int,
-    val name: String,
-    val population: Int,
-    val sunrise: Int,
-    val sunset: Int,
-    val timezone: Int
+import com.google.gson.annotations.SerializedName
+
+
+data class City (
+
+  @SerializedName("id"         ) var id         : Int?    = null,
+  @SerializedName("name"       ) var name       : String? = null,
+  @SerializedName("coord"      ) var coord      : Coord?  = Coord(),
+  @SerializedName("country"    ) var country    : String? = null,
+  @SerializedName("population" ) var population : Int?    = null,
+  @SerializedName("timezone"   ) var timezone   : Int?    = null,
+  @SerializedName("sunrise"    ) var sunrise    : Int?    = null,
+  @SerializedName("sunset"     ) var sunset     : Int?    = null
+
 )

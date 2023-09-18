@@ -1,5 +1,10 @@
-package com.example.forecastapp.model
+package com.example.example.forecastapp
 
-data class Clouds(
-    val all: Int
+import com.google.gson.annotations.SerializedName
+
+
+data class Clouds (
+
+  @SerializedName("all" ) var all : Int? = null
+
 )

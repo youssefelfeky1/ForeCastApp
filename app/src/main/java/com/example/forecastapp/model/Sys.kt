@@ -1,5 +1,10 @@
-package com.example.forecastapp.model
+package com.example.example.forecastapp
 
-data class Sys(
-    val pod: String
+import com.google.gson.annotations.SerializedName
+
+
+data class Sys (
+
+  @SerializedName("pod" ) var pod : String? = null
+
 )

@@ -1,6 +1,11 @@
-package com.example.forecastapp.model
+package com.example.example.forecastapp
 
-data class Coord(
-    val lat: Int,
-    val lon: Int
+import com.google.gson.annotations.SerializedName
+
+
+data class Coord (
+
+  @SerializedName("lat" ) var lat : Int? = null,
+  @SerializedName("lon" ) var lon : Int? = null
+
 )
