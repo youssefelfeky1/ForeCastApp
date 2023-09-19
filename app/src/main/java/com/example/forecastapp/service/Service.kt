@@ -1,7 +1,7 @@
 package com.example.forecastapp.service
 
 import com.example.forecastapp.Utils
-import com.example.forecastapp.model.ForeCast
+import com.example.forecastapp.modal.ForeCast
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,6 +14,15 @@ interface Service {
         lat:String,
         @Query("lon")
         lon:String,
+        @Query("appid")
+        appid:String = Utils.API_KEY
+
+    ): Call<ForeCast>
+
+    @GET("forecast?")
+    fun getWeatherByCity(
+       @Query("q")
+       city:String,
         @Query("appid")
         appid:String = Utils.API_KEY
 
