@@ -2,7 +2,7 @@
 weather-app using:
 - MVVM
 - REST API (Retrofit)
-- Kotlin Korotens
+- Kotlin coroutines
 - Shared preferences
 
 ## 📷Screenshots
