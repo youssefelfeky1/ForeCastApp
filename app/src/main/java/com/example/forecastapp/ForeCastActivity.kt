@@ -30,7 +30,7 @@ class ForeCastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fore_cast)
 
-        viM = ViewModelProvider(this).get(WeatherVm::class.java)
+        viM = ViewModelProvider(this)[WeatherVm::class.java]
 
 
 

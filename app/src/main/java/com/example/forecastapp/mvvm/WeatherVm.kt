@@ -30,7 +30,7 @@ class WeatherVm:ViewModel() {
         val currentDateTime = LocalDateTime.now()
         val currentDatePattern = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
-        val sharedPrefs = SharedPrefs(context)
+        val sharedPrefs = SharedPrefs.getInstance(context)
 
         val lat = sharedPrefs.getValue("lat").toString()
         val lon = sharedPrefs.getValue("lon").toString()
@@ -40,7 +40,7 @@ class WeatherVm:ViewModel() {
             RetrofitInstance.api.getWeatherByCity(city)
         }
         else{
-            RetrofitInstance.api.getWeatherByCity(lat,lon)
+            RetrofitInstance.api.getCurrentWeather(lat, lon)
         }
 
         val response = call.execute()
@@ -75,7 +75,7 @@ class WeatherVm:ViewModel() {
         val currentDateTime = LocalDateTime.now()
         val currentDateO = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
-        val sharedPrefs = SharedPrefs(context)
+        val sharedPrefs = SharedPrefs.getInstance(context)
         val lat = sharedPrefs.getValue("lat").toString()
         val lon = sharedPrefs.getValue("lon").toString()
 
@@ -108,10 +108,7 @@ class WeatherVm:ViewModel() {
 
 
 
-            Log.d("Forecast LiveData", forecastWeatherLiveData.value.toString())
-        } else {
-            val errorMessage = response.message()
-            Log.e("CurrentWeatherError", "Error: $errorMessage")
+
         }
     }
 

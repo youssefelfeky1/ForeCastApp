@@ -1,10 +1,23 @@
 package com.example.forecastapp
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.location.Location
+import android.location.LocationManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -14,6 +27,8 @@ import com.example.forecastapp.adapter.WeatherToday
 import com.example.forecastapp.databinding.ActivityMainBinding
 import com.example.forecastapp.modal.WeatherList
 import com.example.forecastapp.mvvm.WeatherVm
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,17 +44,24 @@ class MainActivity : AppCompatActivity() {
     var lati: String = ""
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viM = ViewModelProvider(this).get(WeatherVm::class.java)
+        viM = ViewModelProvider(this)[WeatherVm::class.java]
         adapter= WeatherToday()
 
         binding.lifecycleOwner = this
         binding.vm=viM
+        viM.getWeather()
+
+
+
+
+
 
         val sharedPrefs = SharedPrefs.getInstance(this@MainActivity)
         sharedPrefs.clearCityValue()
@@ -203,7 +225,40 @@ class MainActivity : AppCompatActivity() {
         }
         else{
             requestLocationPermissions()
+            viM.getWeather()
         }
+
+
+
+        val searchEditText = binding.searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setTextColor(Color.WHITE)
+
+        binding.next5Days.setOnClickListener {
+            startActivity(Intent(this,ForeCastActivity::class.java))
+        }
+
+        binding.searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val sharedPrefs = SharedPrefs.getInstance(this@MainActivity)
+
+                sharedPrefs.setValueOrNull("city",query!!)
+
+                if (!query.isNullOrEmpty())
+                {
+                    viM.getWeather(query)
+
+                    binding.searchView.setQuery("",false)
+                    binding.searchView.clearFocus()
+                    binding.searchView.isIconified = true
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
     }
 
     private fun checkLocationPermissions(): Boolean {
@@ -229,10 +284,43 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("SuspiciousIndentation")
     private fun getCurrentLocation(){
+
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+
+
+                val location: Location? = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+                    val latitude = location?.latitude
+                    val longitude = location?.longitude
+
+                    val myprefs = SharedPrefs.getInstance(this@MainActivity)
+                    myprefs.setValue("lat",latitude.toString())
+                    myprefs.setValue("lon",longitude.toString())
+                    viM.getWeather()
+
+
+
+            }
+
+
 
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -241,6 +329,16 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode==Utils.PERMISSION_REQUEST_CODE){
+            if (grantResults.isNotEmpty()&& grantResults[0]==PackageManager.PERMISSION_GRANTED &&
+                grantResults[1]==PackageManager.PERMISSION_GRANTED ){
+
+                getCurrentLocation()
+
+            }
+            else{
+                //permission denied handle case
+
+            }
 
         }
 

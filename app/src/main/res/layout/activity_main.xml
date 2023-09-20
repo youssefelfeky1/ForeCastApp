@@ -242,9 +242,9 @@
                             android:id="@+id/next5Days"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawablePadding="6dp"
-                            android:text="5 Days >"
                             android:layout_marginRight="10dp"
+                            android:drawablePadding="6dp"
+                            android:text="4 Days >"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />

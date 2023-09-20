@@ -15,7 +15,7 @@ class SharedPrefs internal constructor(private val context: Context){
         {
             if (instance == null )
             {
-                instance = getInstance(context.applicationContext)
+                instance = SharedPrefs(context.applicationContext)
             }
             return instance!!
         }
