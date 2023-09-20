@@ -1,6 +1,7 @@
 # ForeCastApp
 weather-app using:
 - MVVM
+- LiveData
 - REST API (Retrofit)
 - Kotlin coroutines
 - Shared preferences
