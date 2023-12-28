@@ -8,8 +8,11 @@ weather-app using:
 
 ## 📷Screenshots
 
-![Screenshot 2023-09-20 095145](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/7397911a-c0db-4919-a561-b91b007f2d4a)
-![Screenshot 2023-09-20 095221](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/fd9baf15-37ac-40cb-b0b0-f9d6ed90006a)
-![Screenshot 2023-09-20 095250](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/d886118a-1ee2-4f0f-aa0b-32d41591e030)
-![Screenshot 2023-09-20 095313](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/ca3df120-1ad1-4210-8e57-a67c1f32a489)
+![Screenshot 2023-09-20 095145](https://media.licdn.com/dms/image/D4D2DAQG0xytWbkKWuw/profile-treasury-image-shrink_1920_1920/0/1695221116731?e=1704412800&v=beta&t=4W8eWzWvE-v7phMM8wqYUJR83gaMHw20pJagUhhZ-fA)
+![Screenshot 2023-09-20 095221](https://media.licdn.com/dms/image/D4D2DAQEviPkUa4ERUg/profile-treasury-image-shrink_1920_1920/0/1695221132888?e=1704412800&v=beta&t=VO3pEXlD8zru042g__Qxc7U-LloDmmMgv1iSdJpPcCM)
+)
+![Screenshot 2023-09-20 095250](https://media.licdn.com/dms/image/D4D2DAQH8eIxY81dNuw/profile-treasury-image-shrink_1920_1920/0/1695221153239?e=1704412800&v=beta&t=6yxe3TPG7TYTXcJ2VqAiuHDlwMN5_xW-T33D1-K6TB0)
+)
+![Screenshot 2023-09-20 095313](https://media.licdn.com/dms/image/D4D2DAQEInWcac_bLYA/profile-treasury-image-shrink_1920_1920/0/1695221168490?e=1704412800&v=beta&t=Z5dF1VxdebUBxDMgiCmxIxyOJvvkdfPUC1eRRL3vgxc)
+)
 
