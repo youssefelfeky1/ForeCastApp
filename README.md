@@ -9,11 +9,8 @@ weather-app using:
 
 ## 📷Screenshots
 
-![Screenshot 2023-09-20 095145](https://media.licdn.com/dms/image/D4D2DAQG0xytWbkKWuw/profile-treasury-image-shrink_1920_1920/0/1695221116731?e=1704412800&v=beta&t=4W8eWzWvE-v7phMM8wqYUJR83gaMHw20pJagUhhZ-fA)
-![Screenshot 2023-09-20 095221](https://media.licdn.com/dms/image/D4D2DAQEviPkUa4ERUg/profile-treasury-image-shrink_1920_1920/0/1695221132888?e=1704412800&v=beta&t=VO3pEXlD8zru042g__Qxc7U-LloDmmMgv1iSdJpPcCM)
-)
-![Screenshot 2023-09-20 095250](https://media.licdn.com/dms/image/D4D2DAQH8eIxY81dNuw/profile-treasury-image-shrink_1920_1920/0/1695221153239?e=1704412800&v=beta&t=6yxe3TPG7TYTXcJ2VqAiuHDlwMN5_xW-T33D1-K6TB0)
-)
-![Screenshot 2023-09-20 095313](https://media.licdn.com/dms/image/D4D2DAQEInWcac_bLYA/profile-treasury-image-shrink_1920_1920/0/1695221168490?e=1704412800&v=beta&t=Z5dF1VxdebUBxDMgiCmxIxyOJvvkdfPUC1eRRL3vgxc)
-)
+![Screenshot 2023-09-20 095145](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/4fefa9d5-9533-48da-bdcf-12de65841694)
+![Screenshot 2023-09-20 095221](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/8ec345af-3a8c-4208-a4c6-d70f28e1985c)
+![Screenshot 2023-09-20 095250](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/7a4bf0f3-5d07-469d-986b-7f16d5fd367e)
+![Screenshot 2023-09-20 095313](https://github.com/youssefelfeky1/ForeCastApp/assets/124710627/49626b25-fd8d-4d26-8251-a01b55550657)
 
